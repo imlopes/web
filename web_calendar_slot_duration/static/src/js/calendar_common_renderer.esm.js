@@ -11,7 +11,10 @@ patch(
     {
         get options() {
             const options = this._super(...arguments);
-            if (this.env.searchModel.context.calendar_slot_duration) {
+            if (
+                this.env.searchModel.context.calendar_slot_duration &&
+                this.env.searchModel.context.adapt_view_to_slot_duration
+            ) {
                 options.slotDuration =
                     this.env.searchModel.context.calendar_slot_duration;
             }
